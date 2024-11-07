@@ -56,7 +56,22 @@ def create_navigation_pages(auth: StreamlitAuthenticator):
 def main():
     auth = StreamlitAuthenticator(CONFIG_PATH)
     if not auth.is_authenticated:
+        st.code(
+            """
+                Credentials:
+
+                Admin Role
+                Username: jconnor
+                Password: abc
+
+                User Role
+                Username: sconnor
+                Password: def
+                """
+        )
+
         auth.authenticate()
+
     else:
         # display_logo() #
         display_sidebar(auth)
